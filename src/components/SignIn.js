@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {validate} from "./validate";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {notify} from './toast'
 
 const SignIn = () => {
   const [data, setData] = useState({
@@ -37,10 +38,10 @@ const SignIn = () => {
 
   const submitHandler = event => {
     event.preventDefault();
-    notify();
     if (!Object.keys(errors).length) {
-        console.log(errors)
+        notify("you signed in sussesfully", "success")
     } else {
+      notify("Invalid Data","error")
       setTouch({
         name: true,
         email: true,
