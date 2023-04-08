@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {validate} from "./validate";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {notify} from './toast'
+import {notify} from './toast';
+import login from "./login.css"
 
 const SignIn = () => {
   const [data, setData] = useState({
@@ -53,30 +54,30 @@ const SignIn = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={submitHandler}>
+    <div className='flex-container'>
+      <form className='loginContainer' onSubmit={submitHandler}>
         <h2>Sign Up</h2>
-        <div>
+        <div className='box'>
           <label>Name</label>
           <input type='text' name="name" value={data.name}  onChange={handler} onFocus={focusHandler}/>
           {errors.name && touch.name && <span>{errors.name}</span>}
         </div>
-        <div>
+        <div className='box'>
           <label>Email</label>
           <input type='email' name="email" value={data.email} onChange={handler}onFocus={focusHandler}/>
           {errors.email && touch.email && <span>{errors.email}</span>}
         </div>
-        <div>
+        <div className='box'>
           <label>Password</label>
           <input type='password' name="password" value={data.password} onChange={handler}onFocus={focusHandler}/>
           {errors.password && touch.password && <span>{errors.password}</span>}
         </div>
-        <div>
+        <div className='box'>
           <label>Confirm Password</label>
           <input type='password' name="confirmPass" value={data.confirmPass} onChange={handler}onFocus={focusHandler}/>
           {errors.confirmPass && touch.confirmPass &&  <span>{errors.confirmPass}</span>}
         </div>
-        <div>
+        <div className='box'>
           <label>Policy</label>
           <input type='checkbox' name="isAccepted" value={data.isAccepted} onChange={handler}onFocus={focusHandler}/>
           {errors.isAccepted && touch.isAccepted && <span>{errors.isAccepted}</span>}
